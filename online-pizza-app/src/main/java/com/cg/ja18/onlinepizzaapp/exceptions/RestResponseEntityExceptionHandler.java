@@ -25,6 +25,25 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
 		
 	}
+	@ExceptionHandler(AdminIdNotFoundException.class)
+	public ResponseEntity<ErrorMessage> handleAdminIdNotFoundException(AdminIdNotFoundException ex,WebRequest request) 
+	{
+		ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,ex.getMessage());
+		
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+		
+	}
+	
+	@ExceptionHandler(CustomerIdNotFoundException.class)
+	public ResponseEntity<ErrorMessage> handleCustomerIdNotFoundException(CustomerIdNotFoundException ex,WebRequest request) 
+	{
+		ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,ex.getMessage());
+		
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+		
+	}
 	
 	@ExceptionHandler(CouponIdNotFoundException.class)
 	public ResponseEntity<ErrorMessage> handleDepartmentNotFoundException(CouponIdNotFoundException ex,WebRequest request) 
